@@ -15,6 +15,7 @@ app.get("/hello", (req, res) => {
 app.get("/", async (req, res) => {
   try {
     const data = await item.find();
+    console.log("Data: ".black.bold, data)
     res.status(200).send({
       success: true,
       Data: data,
@@ -40,7 +41,7 @@ app.post("/item", async (req, res) => {
     }
 
     const Itemdata = new item(req.body);
-    console.log("Daa: ", Itemdata);
+    console.log("Daa: ".black.bold, Itemdata);
     const data = await Itemdata.save();
     res.status(200).send({
       success: true,
