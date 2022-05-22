@@ -15,7 +15,7 @@ app.get("/hello", (req, res) => {
 app.get("/", async (req, res) => {
   try {
     const data = await item.find();
-    console.log("Data: ".black.bold, data)
+    console.log("Data: ".black.bold, data);
     res.status(200).send({
       success: true,
       Data: data,
@@ -30,7 +30,7 @@ app.get("/", async (req, res) => {
 
 app.post("/item", async (req, res) => {
   try {
-    const {key} = req.query;
+    const { key } = req.query;
     console.log("apiKey: ", key);
 
     if (key !== "testApiKey") {
@@ -46,8 +46,7 @@ app.post("/item", async (req, res) => {
     res.status(200).send({
       success: true,
       Data: data,
-    })
-
+    });
   } catch (e) {
     res.status(400).send({
       success: false,

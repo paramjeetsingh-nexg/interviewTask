@@ -15,10 +15,11 @@ const itemsSchema = new mongoose.Schema({
         id: String,
         carTitle: String,
         amount: String,
-        created: String
+        created: {
+            type: String,
+            default: Date.now()
+        }
     }
-},{
-    timestamps: true
 });
 
 const itemModel = new mongoose.model('Data', itemsSchema);
