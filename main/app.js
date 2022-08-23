@@ -5,11 +5,15 @@ const colors = require("colors");
 const item = require("./schema");
 const faker= require("faker");
 const carName = require('car-names')
+const cors = require('cors');
 const { v4: uuidv4 } = require("uuid");
 
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
+app.use(cors());
+app.disable("x-powered-by");
+app.set("trust proxy", true);
 
 app.get("/hello", (req, res) => {
   res.status(200).send("HELLO WORLD");
